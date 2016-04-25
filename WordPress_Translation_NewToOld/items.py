@@ -11,5 +11,6 @@ import scrapy
 class WordpressTranslationNewtooldItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    originalString = scrapy.Field()
+    originalString 		= scrapy.Field()
+    translatedString 	= scrapy.Field()
     pass
