@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy             import Selector
+from scrapy.http        import Request
 
 
 class UntranslatedStringSpider(scrapy.Spider):
@@ -28,14 +29,22 @@ class UntranslatedStringSpider(scrapy.Spider):
 			
     		self.untranslated.append( aux )
     			
-    		print ( self.untranslated[-1] )
-    		print ( '------------------' )
+    		# print ( self.untranslated[-1] )
+    		# print ( '------------------' )
 
-		# '''
-  #   			
+    	paginaSiguiente = []
+    	paginaSiguiente = hxs.xpath('//div[@class="paging"]/a[@class="next"]/@href')
 
-  #   	for row in untranslatedRows
-  #   		print ('-------------------')
-  #   		print ( str( row ) )
-  #   		print ('-------------------')
-		# '''
+    	try:
+    		
+    		fullUrl_toNextPage = response.urljoin( paginaSiguiente[0].extract() )
+    		yield Request( fullUrl_toNextPage, callback=self.parse ) #recursive call 
+    	
+    	except Exception:
+    		print ("----------------------")
+    		print ("end of the journey little hobbit")
+    		print ("----------------------")
+    		for x in self.untranslated:
+    			print ( x )
+    			print ("----------------------")
+    		print ( len( self.untranslated ) )
