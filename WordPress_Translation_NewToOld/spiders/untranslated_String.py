@@ -16,7 +16,7 @@ class UntranslatedStringSpider(scrapy.Spider):
     def __init__ (self):
     	self.untranslated = []
     	self.Njourney = 0
-    	self.translationReturn = []
+    	# self.translationReturn = []
 
     def parse(self, response):
     
@@ -49,13 +49,14 @@ class UntranslatedStringSpider(scrapy.Spider):
 	    		# for x in self.translationReturn:
 	    		# 	print ( str(x) )
 	    		# 	print ("----------------------")
-	    		print ( "Old untranslated:" + str( len( self.untranslated ) ) +"\n Found: " + str( len( self.translationReturn ) ) ) 
+	    		# print ( "Old untranslated:" + str( len( self.untranslated ) ) +"\n Found: " + str( len( self.translationReturn ) ) ) 
 	    		
-	    		for r in self.translationReturn:
+	    		for r in self.untranslated:
 	    			yield r
     	
 
     #this will return the next url if exist
+    #search the untraslated
     def stepOne(self, response):
     	
     	hxs = Selector(response)
@@ -64,10 +65,11 @@ class UntranslatedStringSpider(scrapy.Spider):
 
     	for rows in untranslatedRows:
 
-    		aux = ""
+    		aux = WordpressTranslationNewtooldItem()
+    		aux['originalString'] = ''
 
     		for r in rows.xpath('./child::node()').extract():    	
-    			aux = aux + r.strip() + ' '		
+    			aux['originalString'] = aux['originalString'] + r.strip() + ' '		
 			
     		self.untranslated.append( aux )
     			
@@ -83,6 +85,7 @@ class UntranslatedStringSpider(scrapy.Spider):
     	except Exception:
     		return None
 
+    #search the translated that are not transalated in older
     def stepTwo(self, response):
     	hxs = Selector(response)
     	translatedRows = hxs.xpath('//table[@id="translations"]/tr[@class="preview status-current no-warnings priority-normal"]/td[@class="original"]')
@@ -94,12 +97,14 @@ class UntranslatedStringSpider(scrapy.Spider):
     		for r in rows.xpath('./child::node()').extract():    	
     			aux = aux + r.strip() + ' '		
 			
-    		if self.compareStrings(aux):
-	    		traductionItem = WordpressTranslationNewtooldItem()
-	    		traductionItem['originalString'] = aux
-	    		traductionItem['translatedString'] = rows.xpath('./..//td[@class="translation foreign-text"]/text()').extract()
-	    		self.translationReturn.append( traductionItem )
-
+    		i = self.compareStrings(aux) 
+    		
+    		if i is not None:
+    			#scrapy item
+	    		# traductionItem = W
+	    		# traductionItem['originalString'] = aux
+	    		self.untranslated[i]['translatedString'] = rows.xpath('./..//td[@class="translation foreign-text"]/text()').extract()[0].strip()
+	    		
     	paginaSiguiente = []
     	paginaSiguiente = hxs.xpath('//div[@class="paging"]/a[@class="next"]/@href')
 
@@ -111,7 +116,11 @@ class UntranslatedStringSpider(scrapy.Spider):
 
     def compareStrings(self, t):
 
-    	if t in self.untranslated:
-    		return True
+    	i = 0
+
+    	for x in self.untranslated:
+    		if t == x['originalString']:
+    			return i
+    		i += 1	
     	
-    	return False
+    	return None
