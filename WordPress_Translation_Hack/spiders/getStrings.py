@@ -8,12 +8,19 @@ from WordPress_Translation_Hack.items	import WordpressTranslationHackItem
 class getStringsSpider(scrapy.Spider):
     name = "getStrings"
     allowed_domains = ["translate.wordpress.org"]
-    start_urls = (
-        'https://translate.wordpress.org/projects/wp/4.4.x/es-ve/default?filters[term]=&filters[user_login]=&filters[status]=untranslated&filter=Filter&sort[by]=priority&sort[how]=desc',
-        
-    )
+    
+    start_urls = []
 
-    def __init__ (self):
+
+    def __init__ (self, toTranslate=None, translated=None,*args, **kwargs):
+        super( getStringsSpider, self).__init__(*args, **kwargs)
+        print( toTranslate )
+        print( translated )
+
+        self.start_urls = [ toTranslate ]
+        self.translated = translated
+
+
     	self.untranslated = []
     	self.Njourney = 0
     	# self.translationReturn = []
@@ -28,7 +35,7 @@ class getStringsSpider(scrapy.Spider):
 	    		yield Request( nextUrl, callback=self.parse ) #recursive call 
 	    	else:
 	    		self.Njourney = 1
-	    		yield Request( "https://translate.wordpress.org/projects/wp/dev/es-ve/default?page=1", callback=self.parse ) #recursive call 
+	    		yield Request( self.translated, callback=self.parse ) #recursive call 
 	    	# 	print ("----------------------")
 	    	# 	print ("end of the journey little hobbit")
 	    	# 	print ("----------------------")
@@ -65,7 +72,7 @@ class getStringsSpider(scrapy.Spider):
 
     	for rows in untranslatedRows:
 
-    		aux = WordpressTranslationNewtooldItem()
+    		aux = WordpressTranslationHackItem()
     		aux['originalString'] = ''
 
     		for r in rows.xpath('./child::node()').extract():    	
