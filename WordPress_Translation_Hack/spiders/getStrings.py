@@ -2,11 +2,11 @@
 import scrapy
 from scrapy            						import Selector
 from scrapy.http        					import Request
-from WordPress_Translation_NewToOld.items	import WordpressTranslationNewtooldItem
+from WordPress_Translation_Hack.items	import WordpressTranslationHackItem
 
 
-class UntranslatedStringSpider(scrapy.Spider):
-    name = "untranslated_String"
+class getStringsSpider(scrapy.Spider):
+    name = "getStrings"
     allowed_domains = ["translate.wordpress.org"]
     start_urls = (
         'https://translate.wordpress.org/projects/wp/4.4.x/es-ve/default?filters[term]=&filters[user_login]=&filters[status]=untranslated&filter=Filter&sort[by]=priority&sort[how]=desc',
