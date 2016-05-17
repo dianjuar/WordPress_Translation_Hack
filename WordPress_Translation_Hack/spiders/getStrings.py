@@ -14,8 +14,8 @@ class getStringsSpider(scrapy.Spider):
 
     def __init__ (self, toTranslate=None, translated=None,*args, **kwargs):
         super( getStringsSpider, self).__init__(*args, **kwargs)
-        print( toTranslate )
-        print( translated )
+        #print( '\n'+str(toTranslate) )
+        #print( str(translated) )
 
         self.start_urls = [ toTranslate ]
         self.translated = translated
