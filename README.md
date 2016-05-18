@@ -9,8 +9,11 @@ This tool will search which strings are not translated and search the correspond
 With this you will be faster and effective. Every one can copy an paste.
 
 ## Usage
-    python2.7 WordPressTranslationHack.py [-h] -d URL-UNtranslated -o URL-translated [-f File-Name]
-
+```
+usage: WordPress Translation Hack [-h] -d URL-UNtranslated -o
+                                  URL-translated [-f File-Name]
+```
+                                  
 ### Parameters
 
 ```
@@ -23,6 +26,11 @@ optional arguments:
   -f "File-Name", --file "File-Name"
                         Name of the CSV output file (Default = output.csv
 ```
+
+## Dependencies 
+-scrapy
+-argparse
+
 ## Recomendation
 I recomend know read the entire string and translate it 
 in your mind in case that contains an error or don't 
