@@ -1,6 +1,6 @@
 # WordPress Translation Hack
-![WordPress Translation Hack]({{site.baseurl}}//Screenshot_2016-05-18_01-11-46.png)
 
+![WordPress Translation Hack]({{site.baseurl}}/http://i.imgur.com/4mUFw5S.png)
 ### Usage
 WordPress Translation Hack [-h] -d "Web-Page" -o "Web-Page" [-f "File-Name"]
 
