@@ -28,7 +28,9 @@ usage: WordPress Translation Hack [-h] -d URL-UNtranslated -o
 ## Dependencies 
 - scrapy
 - argparse
+
 ### Installing Dependencies
+
 #### If your default python is *python 2.7*
 
 ```
