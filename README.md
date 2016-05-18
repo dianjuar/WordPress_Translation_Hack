@@ -14,8 +14,8 @@ usage: WordPress Translation Hack [-h] -d URL-UNtranslated -o
                                   URL-translated [-f File-Name]
 ```
 ### Parameters
-  ```
-  optional arguments:
+```
+optional arguments:
     -h, --help            show this help message and exit
     -d "Web-Page", --to-translate "Web-Page"
                           The web page when are the strings TO BE translated
@@ -23,7 +23,7 @@ usage: WordPress Translation Hack [-h] -d URL-UNtranslated -o
                           The web page when are the strings TRANSLATED
     -f "File-Name", --file "File-Name"
                           Name of the CSV output file (Default = output.csv
-  ```
+```
 
 ## Dependencies 
 - scrapy
