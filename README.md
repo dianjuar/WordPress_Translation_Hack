@@ -50,6 +50,5 @@ in your mind in case that contains an error or don't
 adjust to your local lenguage.
 
 ## Demostration
-
-[![Demostrative video](http://imgur.com/swUaD6G)](https://youtu.be/LEp6NQ5F-RQ)
+[![Demostrative video](http://i.imgur.com/fENtbEy.png)](https://youtu.be/LEp6NQ5F-RQ)
 
