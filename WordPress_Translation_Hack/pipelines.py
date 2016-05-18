@@ -25,7 +25,7 @@ class CSVExportPipeline(object):
         return pipeline
 
     def spider_opened(self, spider):
-        file = open('%s_products.csv' % spider.name, 'w+b')
+        file = open('%s' % spider.nameOfFile, 'w+b')
         self.files[spider] = file
         self.exporter = CsvItemExporter(file)
 

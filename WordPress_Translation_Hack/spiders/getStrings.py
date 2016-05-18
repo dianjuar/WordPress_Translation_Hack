@@ -12,13 +12,14 @@ class getStringsSpider(scrapy.Spider):
     start_urls = []
 
 
-    def __init__ (self, toTranslate=None, translated=None,*args, **kwargs):
+    def __init__ (self, toTranslate=None, translated=None, nameOfFile=None,*args, **kwargs):
         super( getStringsSpider, self).__init__(*args, **kwargs)
         #print( '\n'+str(toTranslate) )
         #print( str(translated) )
 
         self.start_urls = [ toTranslate ]
         self.translated = translated
+        self.nameOfFile = nameOfFile if nameOfFile is not None else 'output.csv'
 
         self.untranslated = []
         self.Njourney = 0
