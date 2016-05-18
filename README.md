@@ -9,21 +9,21 @@ This tool will search which strings are not translated and search the correspond
 With this you will be faster and effective. Every one can copy an paste.
 
 ## Usage
-  ```
-  usage: WordPress Translation Hack [-h] -d URL-UNtranslated -o
-                                    URL-translated [-f File-Name]
-  ```    
-	### Parameters
-      ```
-      optional arguments:
-        -h, --help            show this help message and exit
-        -d "Web-Page", --to-translate "Web-Page"
-                              The web page when are the strings TO BE translated
-        -o "Web-Page", --translated "Web-Page"
-                              The web page when are the strings TRANSLATED
-        -f "File-Name", --file "File-Name"
-                              Name of the CSV output file (Default = output.csv
-      ```
+```
+usage: WordPress Translation Hack [-h] -d URL-UNtranslated -o
+                                  URL-translated [-f File-Name]
+```    
+### Parameters
+```
+optional arguments:
+  -h, --help            show this help message and exit
+  -d "Web-Page", --to-translate "Web-Page"
+                        The web page when are the strings TO BE translated
+  -o "Web-Page", --translated "Web-Page"
+                        The web page when are the strings TRANSLATED
+  -f "File-Name", --file "File-Name"
+                        Name of the CSV output file (Default = output.csv
+```
 
 ## Dependencies 
 - scrapy
