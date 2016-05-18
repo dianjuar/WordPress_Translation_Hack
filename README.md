@@ -13,7 +13,7 @@ With this you will be faster and effective. Every one can copy an paste.
 usage: WordPress Translation Hack [-h] -d URL-UNtranslated -o
                                   URL-translated [-f File-Name]
 ```
-## Parameters
+### Parameters
   ```
   optional arguments:
     -h, --help            show this help message and exit
