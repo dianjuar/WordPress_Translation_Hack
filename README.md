@@ -1,4 +1,4 @@
-![WordPress Translation Hack](http://i.imgur.com/4mUFw5S.png)
+#WordPress Translation Hack
 
 ## Description
 A tool to hack WordPress Translation at 
