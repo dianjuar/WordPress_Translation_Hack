@@ -29,12 +29,12 @@ usage: WordPress Translation Hack [-h] -d URL-UNtranslated -o
 - scrapy
 - argparse
 	### Installing Dependencies
-    #### If your default python is *python 2.7*
+#### If your default python is *python 2.7*
           ```
           pip install scrapy
           pip install argparse
           ``` 
-	#### If your default python is *python 3.5*
+#### If your default python is *python 3.5*
           ```
           pip2 install scrapy
           pip2 install argparse
