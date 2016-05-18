@@ -1,10 +1,18 @@
 # -*- coding: utf-8 -*
 import argparse
-import os
+# import os
 
-#import scrapy
-#from scrapy.crawler import CrawlerProcess
+import scrapy
+from scrapy.crawler import CrawlerProcess
+
+from twisted.internet 				import reactor
+from scrapy.crawler 				import Crawler
+from scrapy.utils.project 			import get_project_settings
+
+#--the spiders
 from WordPress_Translation_Hack.spiders.getStrings import getStringsSpider
+#--the spiders
+
 
 '''
 Una herramienta para traducir 
@@ -62,17 +70,16 @@ parser = argparse.ArgumentParser(
 #parser.add_argument('integers', metavar='N', type=int, nargs='+', help='an integer for the accumulator')
 parser.add_argument('-d','--to-translate', metavar='"Web-Page"', dest='toTranslate', required=True, help='The web page when are the strings TO BE translated')
 parser.add_argument('-o','--translated', metavar='"Web-Page"', dest='translated', required=True, help='The web page when are the strings TRANSLATED')
-parser.add_argument('-f','--file', metavar='"File-Name"', dest='file', required=True, help='Name of the CSV output file')
+parser.add_argument('-f','--file', metavar='"File-Name"', dest='file', required=False, help='Name of the CSV output file')
 
 args = parser.parse_args()
 
-os.system( 'scrapy crawl getStrin -a toTranslate='+args.toTranslate+' -a translated='+args.translated+' -o '+ args.file +' -t csv' )
+# -------------------------------------------
 
-#spider = getStringsSpider(toTranslate=str(args.toTranslate), translated=str(args.translated) )
-#process = CrawlerProcess({
-#    'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)'
-#})
-#
-#process.crawl(spider, args.toTranslate)
-#process.start()
-#os.system('scrapy crawl getStrings -a toTranslate='+args.toTranslate+' -a translated='+args.translated)
+spider = getStringsSpider()
+process = CrawlerProcess( get_project_settings() )
+
+process.crawl(spider, toTranslate=args.toTranslate, translated=args.translated )
+process.start()
+
+# -------------------------------------------

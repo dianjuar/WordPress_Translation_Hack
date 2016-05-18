@@ -14,6 +14,9 @@ BOT_NAME = 'WordPress_Translation_Hack'
 SPIDER_MODULES = ['WordPress_Translation_Hack.spiders']
 NEWSPIDER_MODULE = 'WordPress_Translation_Hack.spiders'
 
+ITEM_PIPELINES = {
+'WordPress_Translation_Hack.pipelines.CSVExportPipeline': 300
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'WordPress_Translation_Hack (+http://www.yourdomain.com)'
