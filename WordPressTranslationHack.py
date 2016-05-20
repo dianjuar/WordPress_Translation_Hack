@@ -22,6 +22,12 @@ idiomas.
 '''
 
 des='''\
+-------------------------Author------------------------------
+Diego Juliao
+
+Telegram: 	@dianjuar
+Email:		dianjuar@gmail.com
+
      WordPress          Translation            Hack
  .----------------.  .----------------.  .----------------. 
 | .--------------. || .--------------. || .--------------. |
@@ -35,7 +41,7 @@ des='''\
 | '--------------' || '--------------' || '--------------' |
  '----------------'  '----------------'  '----------------' 
      WordPress          Translation            Hack
--------------------------------------------------------------
+
 ----------------------Description-----------------------------
 
 A tool to hack WordPress Translation at 
@@ -66,8 +72,8 @@ parser = argparse.ArgumentParser(
 
 #toTranslate
 #parser.add_argument('integers', metavar='N', type=int, nargs='+', help='an integer for the accumulator')
-parser.add_argument('-d','--to-translate', metavar='"Web-Page"', dest='toTranslate', required=True, help='The web page when are the strings TO BE translated')
-parser.add_argument('-o','--translated', metavar='"Web-Page"', dest='translated', required=True, help='The web page when are the strings TRANSLATED')
+parser.add_argument('-d','--to-translate', metavar='"URL-UNtranslated"', dest='toTranslate', required=True, help='The web page when are the strings TO BE translated')
+parser.add_argument('-o','--translated', metavar='"URL-translated"', dest='translated', required=True, help='The web page when are the strings TRANSLATED')
 parser.add_argument('-f','--file', metavar='"File-Name"',dest='file', required=False, help='Name of the CSV output file (Default = output.csv)')
 
 args = parser.parse_args()
