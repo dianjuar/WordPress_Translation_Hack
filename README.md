@@ -45,9 +45,9 @@ pip2 install argparse
 ```
 
 ## Recomendation
-I recomend know read the entire string and translate it 
+I recomend read the entire string and translate it 
 in your mind in case that contains an error or don't 
-adjust to your local lenguage.
+adjust to your local lenguage after submit it.
 
 ## Demostration
 [![Demostrative video](http://i.imgur.com/fENtbEy.png)](https://youtu.be/LEp6NQ5F-RQ)
