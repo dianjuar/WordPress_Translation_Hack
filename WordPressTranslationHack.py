@@ -58,9 +58,9 @@ copy an paste.
 '''
 epi='''\
 ------------------------WARNING!-----------------------------
-I recomend know read the entire string and translate it 
+I recomend read the entire string and translate it 
 in your mind in case that contains an error or don't 
-adjust to your local lenguage.
+adjust to your local lenguage after submit it.
 '''
 
 parser = argparse.ArgumentParser(
