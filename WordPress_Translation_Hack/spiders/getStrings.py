@@ -3,6 +3,7 @@ import scrapy
 from scrapy                                    import Selector
 from scrapy.http                            import Request
 from WordPress_Translation_Hack.items    import WordpressTranslationHackItem
+# import pdb
 
 
 class getStringsSpider(scrapy.Spider):
@@ -60,15 +61,14 @@ class getStringsSpider(scrapy.Spider):
                 
                 for r in self.untranslated:
                     yield r
-        
-
-    #this will return the next url if exist
-    #search the untraslated
+                    
+    # This will return the next url if exist
+    # Search the untraslated
     def stepOne(self, response):
         
         hxs = Selector(response)
-        untranslatedRows = hxs.xpath('//table[@id="translations"]/tr[@class="preview untranslated no-warnings priority-normal"]/td[@class="original"]')
-
+        # untranslatedRows = hxs.xpath('//table[@id="translations"]/tr[@class="preview untranslated priority-normal no-warnings"]/td[@class="original"]')
+        untranslatedRows = hxs.xpath('//table[@id="translations"]/tr[ contains(@class, "untranslated") ]/td[@class="original"]')
 
         for rows in untranslatedRows:
 
@@ -82,6 +82,7 @@ class getStringsSpider(scrapy.Spider):
                 
             # print ( self.untranslated[-1] )
             # print ( '------------------' )
+            # pdb.set_trace()
 
         paginaSiguiente = []
         paginaSiguiente = hxs.xpath('//div[@class="paging"]/a[@class="next"]/@href')        
@@ -92,10 +93,13 @@ class getStringsSpider(scrapy.Spider):
         except Exception:
             return None
 
-    #search the translated that are not transalated in older
+    # Search the translated that are not transalated in the stepOne
     def stepTwo(self, response):
         hxs = Selector(response)
-        translatedRows = hxs.xpath('//table[@id="translations"]/tr[@class="preview status-current no-warnings priority-normal"]/td[@class="original"]')
+        translatedRows = hxs.xpath('//table[@id="translations"]/tr[ contains(@class, "status-current") ]/td[@class="original"]')
+       
+        # print ( len(untranslatedRows) )
+        # pdb.set_trace()
 
         for rows in translatedRows:
 
