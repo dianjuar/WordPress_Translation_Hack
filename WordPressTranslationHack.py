@@ -57,10 +57,10 @@ copy an paste.
 ----------------------Parameters-----------------------------
 '''
 epi='''\
-------------------------WARNING!-----------------------------
-I recomend read the entire string and translate it 
+--------------------Recommendation!--------------------------
+I recommend read the entire string and translate it 
 in your mind in case that contains an error or don't 
-adjust to your local lenguage after submit it.
+adjust to your local language before submit it.
 '''
 
 parser = argparse.ArgumentParser(
