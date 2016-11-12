@@ -39,11 +39,9 @@ You forget a lot of the compatibility problems between python2 and python3.
 1. Install [`virtualenv`](http://docs.python-guide.org/en/latest/dev/virtualenvs/) in your system
 2. Clone this Repo.
 3. Step into the just clone repo folder
-2. Create a Virtual Environment with python2.7 as default, using `virtualenv -p /usr/bin/python2.7 YOUR_VIRTUAL_ENV_NAME` for **linux** users
-3. Open your virtual environment using `source YOUR_VIRTUAL_ENV_NAME/bin/activate`
-4. Install the project dependencies with
-    ```pip install scrapy
-    pip install argparse```
+2. Create a Virtual Environment with python2.7 as default, using **`virtualenv -p /usr/bin/python2.7 YOUR_VIRTUAL_ENV_NAME`** for **linux** users
+3. Open your virtual environment using **`source YOUR_VIRTUAL_ENV_NAME/bin/activate`**
+4. Install the project dependencies with **`pip install scrapy`** y  **```pip install argparse```**
 5. **You are ready to run!.** _Every time you want to the WTH you need to open your virtual environment._
 
 ## Recommendation
@@ -55,3 +53,4 @@ I recommend read the entire string and translate it in your mind in case that co
 ---------------
 
 > Written with [StackEdit](https://stackedit.io/).
+
