@@ -41,7 +41,7 @@ You forget a lot of the compatibility problems between python2 and python3.
 3. Step into the just clone repo folder
 2. Create a Virtual Environment with python2.7 as default, using **`virtualenv -p /usr/bin/python2.7 YOUR_VIRTUAL_ENV_NAME`** for **linux** users
 3. Open your virtual environment using **`source YOUR_VIRTUAL_ENV_NAME/bin/activate`**
-4. Install the project dependencies with **`pip install scrapy`** y  **```pip install argparse```**
+4. Install the project dependencies with **`pip install scrapy`** and **```pip install argparse```**
 5. **You are ready to run!.** _Every time you want to the WTH you need to open your virtual environment._
 
 ## Recommendation
